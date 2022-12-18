@@ -12,10 +12,10 @@ const App = () => {
   const [activePage, setActivePage] = useState(1);
   const [tiles, setTiles] = useState<ITileWithID[]>(apiTilesWithIDs());
   const [tilesLength, setTilesLength] = useState(tiles.length);
-  const [tilesPerPage, setTilesPerPage] = useState(tilesLength);
+  const [tilesPerPage, setTilesPerPage] = useState<number | "">(tilesLength);
   const [numberOfPages, setNumberOfPages] = useState(1);
 
-  const numberOfTilesOnPrevPages = (activePage - 1) * tilesPerPage;
+  const numberOfTilesOnPrevPages = (activePage - 1) * Number(tilesPerPage);
 
   const tilesGrid = useMemo(() => {
     const limitedTiles = tiles
@@ -26,7 +26,7 @@ const App = () => {
       <div className="tilesGrid" key={`${tilesLength}-tilesGrid`}>
         {limitedTiles.length > 0 ? (
           limitedTiles.map((tile: ITileWithID, index) => {
-            if (index < tilesPerPage) {
+            if (index < Number(tilesPerPage)) {
               return <Tile data={tile} key={tile.id} />;
             } else return null;
           })
@@ -40,7 +40,7 @@ const App = () => {
   }, [numberOfTilesOnPrevPages, tiles, tilesLength, tilesPerPage]);
 
   const pagination = useMemo(
-    () => <Pagination key={`pagination-${tilesPerPage}`} />,
+    () => <Pagination key={`pagination-${Number(tilesPerPage)}`} />,
     [tilesPerPage]
   );
   useEffect(() => {

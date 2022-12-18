@@ -12,7 +12,7 @@ interface IProps {
   setTilesPerPage: (v: number) => void;
   tiles: ITileWithID[];
   tilesLength: number;
-  tilesPerPage: number;
+  tilesPerPage: number | "";
 }
 
 export const TileContext = createContext({} as IProps);

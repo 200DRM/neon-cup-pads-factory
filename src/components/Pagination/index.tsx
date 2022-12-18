@@ -23,12 +23,12 @@ export const Pagination = () => {
 
     setActivePage(1);
 
-    if (tilesPerPage) {
+    if (tilesPerPage !== "" && updatedNumberOfPages !== Infinity) {
       setNumberOfPages(updatedNumberOfPages);
       setTilesPerPage(updatedTilesPerPage);
     } else {
       setNumberOfPages(1);
-      setTilesPerPage(tilesLength);
+      setTilesPerPage(0);
     }
   };
 
@@ -44,13 +44,10 @@ export const Pagination = () => {
   };
   const handleManualInput = (e: ChangeEvent<HTMLInputElement>) => {
     const valueToPositive = Math.abs(Number(e.target.value) || 0);
-    if (valueToPositive > tilesLength) {
-      return (e.target.value = String(tilesLength));
-    } else {
-      return (e.target.value = String(valueToPositive));
-    }
+
+    return (e.target.value = String(valueToPositive));
   };
-  console.log("tilesLength", tilesLength);
+
   return (
     <div className="pagination">
       <div>
@@ -84,7 +81,7 @@ export const Pagination = () => {
           defaultValue={tilesPerPage}
           key={`${tilesLength}-tiles-per-page`}
           type="number"
-          min="1"
+          min="0"
           max={tilesLength}
           onChange={handleChangeTilesPerPage}
           onInput={handleManualInput}

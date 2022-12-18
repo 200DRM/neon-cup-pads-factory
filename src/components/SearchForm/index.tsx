@@ -19,7 +19,9 @@ export const SearchForm = () => {
 
     setActivePage(1);
     setTiles(filteredTiles);
-    setNumberOfPages(Math.ceil(filteredTiles.length / tilesPerPage) || 1);
+    setNumberOfPages(
+      Math.ceil(filteredTiles.length / Number(tilesPerPage)) || 1
+    );
   };
 
   return (
