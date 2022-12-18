@@ -1,0 +1,34 @@
+.App {
+  color: #0f0f0f;
+  font-size: 1.3em;
+  padding: 2vw;
+
+  & > h2 {
+    color: #080707;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 2vw;
+
+    @media (min-width: 1025px) {
+      font-size: 3em;
+    }
+  }
+
+  .tilesGrid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @media (min-width: 1025px) {
+      flex-direction: row;
+    }
+  }
+
+  .addCustomTile,
+  .noTiles {
+    margin: 2vw 0 0;
+    text-align: center;
+    width: 100%;
+  }
+}

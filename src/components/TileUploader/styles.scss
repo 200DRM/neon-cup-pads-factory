@@ -1,0 +1,72 @@
+.tileUploader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 1vw 0;
+
+  @media (min-width: 1025px) {
+    flex-direction: row;
+  }
+
+  & > input {
+    border: none;
+    border-radius: 2%;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 1em;
+    outline: none;
+    box-shadow: 1px 1px 1px #4e5456;
+    margin: 1vw 0.3vw;
+    padding: 3vw;
+
+    @media (min-width: 1025px) {
+      padding: 1vw;
+    }
+
+    &:focus {
+      box-shadow: 2px 2px 2px #27292a;
+    }
+  }
+
+  .fileInput,
+  .upload {
+    border: none;
+    border-radius: 2%;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 1px 1px #4e5456;
+    margin: 1vw 0.2vw;
+
+    label,
+    span {
+      background: #ffc845;
+      color: #0f0f0f;
+      width: 100%;
+      text-align: center;
+      padding: 2vw;
+      transition: all 0.5s ease-in-out;
+
+      @media (min-width: 1025px) {
+        padding: 1vw 2vw;
+      }
+
+      &:hover {
+        background: #0f0f0f;
+        color: #ffc845;
+        cursor: pointer;
+      }
+    }
+
+    input {
+      border-radius: 2%;
+      outline: none;
+      visibility: hidden;
+      width: 0;
+
+      &:focus {
+        box-shadow: 2px 2px 2px #27292a;
+      }
+    }
+  }
+}

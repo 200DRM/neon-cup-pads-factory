@@ -1,0 +1,25 @@
+.searchForm {
+  color: #080707;
+  margin: 0 auto;
+  text-align: center;
+
+  input {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 1em;
+    border: none;
+    border-radius: 2%;
+    box-shadow: 1px 1px 1px #4e5456;
+    outline: none;
+    padding: 3vw;
+    width: 90vw;
+
+    @media (min-width: 1025px) {
+      width: 40%;
+      padding: 1vw;
+    }
+
+    &:focus {
+      box-shadow: 2px 2px 2px #27292a;
+    }
+  }
+}

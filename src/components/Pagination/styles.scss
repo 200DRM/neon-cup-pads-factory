@@ -1,0 +1,89 @@
+.pagination {
+  align-items: center;
+  color: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5vw;
+  padding: 2vw;
+  justify-content: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  @media (min-width: 1025px) {
+    flex-direction: row;
+    margin-bottom: 1vw;
+  }
+
+  & > div {
+    text-align: center;
+    flex-basis: 2;
+    min-width: 30%;
+    margin: 2vw;
+
+    @media (min-width: 1025px) {
+      margin: 0;
+    }
+
+    & > span {
+      display: inline-block;
+    }
+
+    .tilesPerPageInput {
+      margin-top: 5vw;
+
+      @media (min-width: 1025px) {
+        margin-top: 0;
+      }
+    }
+
+    input {
+      border: none;
+      border-radius: 2%;
+      box-shadow: 1px 1px 1px #4e5456;
+      font-size: 1em;
+      outline: none;
+      padding: 3vw;
+      width: 20%;
+      margin-left: 4vw;
+
+      @media (min-width: 1025px) {
+        padding: 1vw;
+      }
+
+      &:focus {
+        box-shadow: 2px 2px 2px #27292a;
+      }
+    }
+
+    .arrow {
+      color: #080707;
+      border-radius: 2%;
+      box-shadow: 1px 1px 1px #4e5456;
+      font-weight: bold;
+      margin: 0.5em;
+      background: #ffc845;
+      padding: 0.5vw 8vw;
+      vertical-align: middle;
+      opacity: 0.5;
+      transition: all 0.5s ease-in-out;
+
+      @media (min-width: 1025px) {
+        padding: 0.5vw 0.75vw;
+        margin: 1em;
+      }
+
+      &.active {
+        opacity: 1;
+
+        &:hover {
+          background: #080707;
+          color: #ffc845;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
