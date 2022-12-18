@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/neon-cup-pads-factory/static/css/main.4f789212.css",
+    "main.js": "/neon-cup-pads-factory/static/js/main.de48265b.js",
+    "index.html": "/neon-cup-pads-factory/index.html",
+    "main.4f789212.css.map": "/neon-cup-pads-factory/static/css/main.4f789212.css.map",
+    "main.de48265b.js.map": "/neon-cup-pads-factory/static/js/main.de48265b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f789212.css",
+    "static/js/main.de48265b.js"
+  ]
+}
