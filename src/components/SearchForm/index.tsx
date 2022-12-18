@@ -28,7 +28,7 @@ export const SearchForm = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           filterTiles(e.target.value)
         }
-        placeholder="search for your neon button..."
+        placeholder="search for a neon cup pad..."
         role="search"
         tabIndex={0}
       ></input>
