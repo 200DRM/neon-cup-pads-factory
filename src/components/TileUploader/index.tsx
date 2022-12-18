@@ -6,8 +6,14 @@ import { Toast } from "../../components/Toast";
 import "./styles.scss";
 
 export const TileUploader = () => {
-  const { tiles, setNumberOfPages, setTiles, setTilesLength, setTilesPerPage } =
-    useContext(TileContext);
+  const {
+    tiles,
+    setActivePage,
+    setNumberOfPages,
+    setTiles,
+    setTilesLength,
+    setTilesPerPage,
+  } = useContext(TileContext);
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
   const [imagePath, setImagePath] = useState("");
@@ -29,6 +35,7 @@ export const TileUploader = () => {
       "userTiles",
       JSON.stringify([...userTilesInLocalStorage, newUserTile])
     );
+    setActivePage(1);
     setDescription("");
     setTitle("");
     setImagePath("");
