@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/neon-cup-pads-factory/static/css/main.1180f448.css",
-    "main.js": "/neon-cup-pads-factory/static/js/main.2d110c20.js",
+    "main.js": "/neon-cup-pads-factory/static/js/main.058dd60d.js",
     "index.html": "/neon-cup-pads-factory/index.html",
     "main.1180f448.css.map": "/neon-cup-pads-factory/static/css/main.1180f448.css.map",
-    "main.2d110c20.js.map": "/neon-cup-pads-factory/static/js/main.2d110c20.js.map"
+    "main.058dd60d.js.map": "/neon-cup-pads-factory/static/js/main.058dd60d.js.map"
   },
   "entrypoints": [
     "static/css/main.1180f448.css",
-    "static/js/main.2d110c20.js"
+    "static/js/main.058dd60d.js"
   ]
 }
