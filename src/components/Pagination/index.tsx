@@ -28,7 +28,7 @@ export const Pagination = () => {
       setTilesPerPage(updatedTilesPerPage);
     } else {
       setNumberOfPages(1);
-      setTilesPerPage(0);
+      setTilesPerPage(tilesLength);
     }
   };
 

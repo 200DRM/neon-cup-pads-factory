@@ -39,10 +39,8 @@ const App = () => {
     );
   }, [numberOfTilesOnPrevPages, tiles, tilesLength, tilesPerPage]);
 
-  const pagination = useMemo(
-    () => <Pagination key={`pagination-${Number(tilesPerPage)}`} />,
-    [tilesPerPage]
-  );
+  const pagination = useMemo(() => <Pagination />, []);
+
   useEffect(() => {
     const userTiles = JSON.parse(localStorage.getItem("userTiles") || "[]");
     if (!!userTiles.length) {
