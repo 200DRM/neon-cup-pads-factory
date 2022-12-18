@@ -1,6 +1,7 @@
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 
 import { TileContext } from "../../contexts/appContext";
+import { Toast } from "../../components/Toast";
 
 import "./styles.scss";
 
@@ -10,6 +11,7 @@ export const TileUploader = () => {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
   const [imagePath, setImagePath] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleAddNewItem = () => {
     const userTilesInLocalStorage = JSON.parse(
@@ -30,6 +32,7 @@ export const TileUploader = () => {
     setTiles(allTiles);
     setTilesLength(allTilesLength);
     setTilesPerPage(allTilesLength);
+    setIsSuccess(true);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,8 +50,21 @@ export const TileUploader = () => {
     }
   };
 
+  useEffect(() => {
+    const delayedHideToast = setTimeout(() => {
+      setIsSuccess(false);
+    }, 1000);
+    return () => clearTimeout(delayedHideToast);
+  }, [isSuccess]);
+
   return (
     <div className="tileUploader">
+      {isSuccess && (
+        <Toast
+          text="New cup pad added successfully!"
+          onClick={() => setIsSuccess(false)}
+        />
+      )}
       <input
         name="title"
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
