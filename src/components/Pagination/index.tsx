@@ -1,6 +1,7 @@
 import { ChangeEvent, useContext } from "react";
 
 import { TileContext } from "../../contexts/appContext";
+import { handleManualInput } from "../../helpers";
 
 import "./styles.scss";
 
@@ -41,11 +42,6 @@ export const Pagination = () => {
     if (activePage !== numberOfPages) {
       setActivePage(activePage + 1);
     }
-  };
-  const handleManualInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const valueToPositive = Math.abs(Number(e.target.value) || 0);
-
-    return (e.target.value = String(valueToPositive));
   };
 
   return (

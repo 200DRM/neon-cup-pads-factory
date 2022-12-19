@@ -1,7 +1,6 @@
 import { ChangeEvent, useContext } from "react";
 
-import { apiTilesWithIDs } from "../../helpers";
-import { ITileWithID } from "../../components/types";
+import { apiTilesWithIDs, filterTilesByTitle } from "../../helpers";
 import { TileContext } from "../../contexts/appContext";
 
 import "./styles.scss";
@@ -13,9 +12,10 @@ export const SearchForm = () => {
   const filterTiles = (keyword: string) => {
     const userTiles = JSON.parse(localStorage.getItem("userTiles") || "[]");
     const allTiles = [...apiTilesWithIDs(), ...userTiles];
-    const filteredTiles = allTiles.filter((tile: ITileWithID) =>
-      tile.title.toLowerCase().includes(keyword.toLowerCase())
-    );
+    const filteredTiles = filterTilesByTitle({
+      dataToFilter: allTiles,
+      keyword,
+    });
 
     setActivePage(1);
     setTiles(filteredTiles);

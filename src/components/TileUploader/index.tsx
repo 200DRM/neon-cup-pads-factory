@@ -1,7 +1,8 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 
-import { TileContext } from "../../contexts/appContext";
 import { Toast } from "../../components/Toast";
+import { TileContext } from "../../contexts/appContext";
+import { addItem } from "../../helpers";
 
 import "./styles.scss";
 
@@ -19,32 +20,22 @@ export const TileUploader = () => {
   const [imagePath, setImagePath] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleAddNewItem = () => {
-    const userTilesInLocalStorage = JSON.parse(
-      localStorage.getItem("userTiles") || "[]"
-    );
-    const newUserTile = {
+  const handleAddNewItem = () =>
+    addItem({
       description,
-      id: tiles.length + 1,
       imagePath,
+      setActivePage,
+      setDescription,
+      setImagePath,
+      setIsSuccess,
+      setNumberOfPages,
+      setTiles,
+      setTilesLength,
+      setTilesPerPage,
+      setTitle,
+      tiles,
       title,
-    };
-    const allTiles = [...tiles, newUserTile];
-    const allTilesLength = allTiles.length;
-    localStorage.setItem(
-      "userTiles",
-      JSON.stringify([...userTilesInLocalStorage, newUserTile])
-    );
-    setActivePage(1);
-    setDescription("");
-    setTitle("");
-    setImagePath("");
-    setNumberOfPages(1);
-    setTiles(allTiles);
-    setTilesLength(allTilesLength);
-    setTilesPerPage(allTilesLength);
-    setIsSuccess(true);
-  };
+    });
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

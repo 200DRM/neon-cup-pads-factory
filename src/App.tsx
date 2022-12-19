@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.scss";
-import { apiTilesWithIDs } from "./helpers";
+import { addUserTilesToInitialTiles, apiTilesWithIDs } from "./helpers";
 import { Pagination } from "./components/Pagination";
 import { SearchForm } from "./components/SearchForm";
 import { TileUploader } from "./components/TileUploader";
@@ -42,11 +42,7 @@ const App = () => {
   const pagination = useMemo(() => <Pagination />, []);
 
   useEffect(() => {
-    const userTiles = JSON.parse(localStorage.getItem("userTiles") || "[]");
-    if (!!userTiles.length) {
-      const allTiles = [...tiles, ...userTiles];
-      setTiles(allTiles);
-    }
+    addUserTilesToInitialTiles({ tiles, setTiles });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
